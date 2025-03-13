@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECH - AI </title>
+    <title>AI TECH</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">TECH AI</div>
-            <img src="profile.jpg" alt="Profile" class="profile-pic">
-        </div>
-            
-    </nav>
+    <div class="navbar">
+        <div class="logo">AI TECH</div>
+        <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+    </div>
 
-    <!-- Chat Container -->
     <div class="chat-container">
-        <div id="chat-box"></div>
+        <div id="chat-box">
+        </div>
 
-        <!-- Input Chat -->
+        <div class="chat-options">
+            <button id="text-mode-btn" class="option-btn">Teks</button>
+            <button id="voice-mode-btn" class="option-btn">Voice</button>
+        </div>
+
         <div class="chat-input">
             <input type="text" id="user-input" placeholder="Ketik pesan...">
-            <button onclick="sendMessage()">➤</button>
-            <button id="record-btn">🎤</button>
+            <button id="record-btn" type="button" style="display: none;">🎤</button>
+            <button id="send-btn" type="button">➡️</button>
         </div>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
