@@ -73,15 +73,15 @@ async function sendMessage(message = null) {
     // Tampilkan loading "AI sedang mengetik..."
     const loading = appendMessage("ai", "AI sedang mengetik...", false, true);
 
-    const apiUrl = `https://faris-apii.biz.id/islamai?text=${encodeURIComponent(text)}`;
+    const apiUrl = `https://api.siputzx.my.id/api/ai/duckai?query=${encodeURIComponent(text)}`;
     userInput.value = "";
 
     try {
-        const response = await fetch(apiUrl);
-        const result = await response.json();
+        const data = await fetch(apiUrl);
+        const result = await data.json();
 
         removeMessage(loading); // Hapus loading
-        appendMessage("ai", result.message.result || "Gagal mendapatkan jawaban.", true);
+        appendMessage("ai", result.response || "Gagal mendapatkan jawaban.", true);
     } catch (error) {
         console.error("Error:", error);
         removeMessage(loading);
