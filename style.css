@@ -1,333 +1,337 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #0d1f2d;
+    background: #0f172a;
     color: white;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    padding: 0 20px;
 }
 
+/* Navbar */
 .navbar {
     width: 100%;
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
-    background-color: #1a1a2e;
+    padding: 15px 20px;
     position: fixed;
     top: 0;
-    z-index: 10;
+    left: 0;
+    z-index: 100;
 }
 
-.navbar .logo {
+.logo {
     font-size: 24px;
     font-weight: bold;
-    color: #00ffcc;
+    color: cyan;
 }
 
-.navbar .menu a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 18px;
-    transition: color 0.3s;
+.profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
 }
 
-.navbar .menu a:hover {
-    color: #00ffcc;
-}
-
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    text-align: center;
-    padding: 20px;
-}
-
-.hero h1 {
-    font-size: 50px;
-    color: white;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 22px;
-    color: #b0b0b0;
-    margin-bottom: 30px;
-}
-
-.start-btn {
-    background-color: #00ffcc;
-    color: #1e1e1e;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-size: 20px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.start-btn:hover {
-    background-color: #009c8a;
-}
-
-.about {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #162447;
-}
-
-.about h3 {
-    font-size: 28px;
-    color: #00ffcc;
-    margin-bottom: 10px;
-}
-
-.about p {
-    font-size: 18px;
-    color: #d3d3d3;
-    line-height: 1.6;
-}
-
+/* Chat Container */
 .chat-container {
     width: 100%;
-    height: 100vh;
-    background: white;
+    max-width: 900px;
+    height: 85vh; /* Lebih fleksibel */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
 }
 
-.chat-header {
-    background: #075e54;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
-.chat-header-left {
-    font-size: 22px;
-}
-
-.chat-header-right {
-    display: flex;
-    align-items: center;
-}
-
-.luminai-text {
-    font-size: 20px;
-    font-weight: bold;
-    color: #00ffcc;
-    margin-right: 15px;
-}
-
-
-.chat-nav {
-    display: flex;
-    gap: 15px;
-}
-
-.chat-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.chat-nav a:hover {
-    color: #00ffcc;
-}
-
+/* Chat Box */
 #chat-box {
     flex: 1;
-    padding: 10px;
-    margin-top: 50px;
     overflow-y: auto;
+    padding: 15px;
     display: flex;
     flex-direction: column;
-    background: white;
+    scroll-behavior: smooth;
+    max-height: calc(100% - 80px); /* Menyesuaikan tinggi */
 }
 
+/* Chat Bubbles */
 .message {
-    max-width: 75%;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 8px;
-    word-wrap: break-word;
-    font-size: 14px;
+    max-width: 90%;
+    padding: 14px 20px;
+    margin: 8px;
+    border-radius: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
 .user-message {
+    background: cyan;
+    color: black;
     align-self: flex-end;
-    background: #dcf8c6;
-    color: #000;
+    border-bottom-right-radius: 5px;
 }
 
 .ai-message {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
     align-self: flex-start;
-    background: #ffffff; 
-    color: #333; 
-    border: 1px solid #ddd;
+    border-bottom-left-radius: 5px;
 }
 
 .chat-input {
     display: flex;
-    padding: 10px;
-    background: #f0f0f0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    min-height: 50px;
 }
 
 .chat-input input {
     flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 20px;
+    padding: 14px; /* Tambah padding agar lebih tinggi */
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
     outline: none;
+    transition: 0.3s;
+    min-height: 45px; /* Pastikan tidak gepeng */
 }
 
-.chat-input button {
-    padding: 10px;
-    margin-left: 5px;
+.chat-input input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.chat-input input:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.send-btn,
+.voice-btn {
+    background: linear-gradient(135deg, #00d4ff, #0084ff);
     border: none;
-    background: #128c7e;
-    color: white;
+    width: 50px; /* Pastikan bulat */
+    height: 50px; /* Sama dengan width */
     border-radius: 50%;
     cursor: pointer;
-    font-size: 18px;
-}
-
-.chat-input button:hover {
-    background: #075e54;
-}
-
-/* Menu Titik Tiga */
-.menu-btn {
     font-size: 22px;
     color: white;
-    cursor: pointer;
-}
-
-.menu-btn:hover {
-    color: #00ffcc;
-}
-
-/* Footer */
-footer {
-    background: #1a1a2e;
-    padding: 20px;
-    font-size: 16px;
-    color: #b0b0b0;
-}
-
-.chat-header {
-    background: #007bff;
-    color: white;
-    padding: 10px;
+    transition: 0.3s;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: relative;
-}
-
-.chat-header-left {
-    display: flex;
-    align-items: center;
-}
-
-.luminai-text {
-    font-size: 20px;
-    color: #00ffcc;
-    margin-left: 10px;
-}
-
-.hamburger-menu {
-    cursor: pointer;
-    font-size: 24px;
-    color: white;
-    margin-left: 15px;
-}
-
-.hamburger-menu:hover {
-    color: #00ffcc;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 50px;
-    left: 15px;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    width: 150px;
-    z-index: 100;
-}
-
-.dropdown-menu a {
-    display: block;
-    padding: 12px;
-    color: #333;
-    text-decoration: none;
-    font-size: 16px;
-    transition: background 0.3s ease;
-}
-
-.dropdown-menu a:hover {
-    background: #f0f0f0;
-}
-
-.dropdown-active {
-    display: block;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 200;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
-    align-items: center;
 }
 
-.modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
+.send-btn:hover,
+.voice-btn:hover {
+    background: linear-gradient(135deg, #00b3e6, #0068cc);
+    transform: scale(1.1);
 }
 
-/* Kontrol Audio */
-.message audio {
-    max-width: 100%;
-    margin: 10px 0;
+.send-btn:hover {
+    background: linear-gradient(135deg, #00b3e6, #0068cc);
+    transform: scale(1.1);
+}
+
+/* Animasi hover */
+@keyframes pulse {
+    0% { box-shadow: 0px 0px 10px rgba(0, 212, 255, 0.5); }
+    50% { box-shadow: 0px 0px 20px rgba(0, 212, 255, 0.8); }
+    100% { box-shadow: 0px 0px 10px rgba(0, 212, 255, 0.5); }
+}
+
+.send-btn:hover {
+    animation: pulse 1s infinite;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .chat-container {
+        width: 95%;
+        height: 88vh;
+    }
+
+    .chat-input {
+        padding: 12px;
+    }
+
+    .chat-input input {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .send-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+}
+
+/* Chat Options */
+.chat-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.option-btn {
+    padding: 10px 15px;
+    border: none;
     border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
 }
 
-/* **Profile Picture** */
-.profile-pic {
-    width: 40px;
-    height: 40px;
+.option-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Tombol Kirim & Rekam */
+.send-btn,
+.record-btn {
+    background: linear-gradient(135deg, #00d4ff, #0084ff);
+    border: none;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     cursor: pointer;
-    border: 2px solid white;
+    font-size: 22px;
+    color: white;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 10px rgba(0, 212, 255, 0.3);
+}
+
+/* Efek Hover */
+.send-btn:hover,
+.record-btn:hover {
+    background: linear-gradient(135deg, #00b3e6, #0068cc);
+    transform: scale(1.1);
+    box-shadow: 0px 4px 15px rgba(0, 212, 255, 0.5);
+}
+
+/* Efek saat tombol direkam */
+.record-btn.active {
+    background: linear-gradient(135deg, #ff3b30, #ff6347);
+    animation: pulse 1s infinite;
+}
+
+/* Animasi Hover & Rekaman */
+@keyframes pulse {
+    0% { box-shadow: 0px 0px 10px rgba(255, 59, 48, 0.5); }
+    50% { box-shadow: 0px 0px 20px rgba(255, 59, 48, 0.8); }
+    100% { box-shadow: 0px 0px 10px rgba(255, 59, 48, 0.5); }
+}
+
+/* Efek saat mengirim pesan */
+.user-message {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    padding: 10px 15px;
+    border-radius: 15px 15px 0 15px;
+    max-width: 70%;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Efek saat menerima pesan dari AI */
+.ai-message {
+    background-color: #e5e5ea;
+    color: black;
+    align-self: flex-start;
+    padding: 10px 15px;
+    border-radius: 15px 15px 15px 0;
+    max-width: 70%;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Efek loading saat mengirim pesan */
+.loading-message {
+    background-color: rgba(0, 0, 0, 0.1);
+    font-style: italic;
+    align-self: flex-end;
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 70%;
+    animation: blink 1s infinite;
+}
+
+/* Tombol Kirim & Voice jadi bulat */
+button {
+    width: 40px;
+    height: 40px;
+    border-radius: 52%; /* Membuat tombol bulat */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px; /* Ukuran ikon lebih besar */
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Efek hover */
+button:hover {
+    background: #0056b3;
+    transform: scale(1.1); /* Sedikit membesar saat hover */
+}
+
+/* Efek klik */
+button:active {
+    transform: scale(0.9);
+}
+/* Efek animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
 }
